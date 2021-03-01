@@ -3,7 +3,7 @@
   position: relative;
   margin: 0 auto;
   padding: 0;
-  
+  max-height: 100%;
   /*временный цвет для удобства верстки*/
   background-color: gray;
 }
