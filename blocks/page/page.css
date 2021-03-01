@@ -1,0 +1,9 @@
+.page {
+  max-width: 375px;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  
+  /*временный цвет для удобства верстки*/
+  background-color: gray;
+}

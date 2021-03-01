@@ -1,8 +1,8 @@
 @import url('../vendor/normalize.css'); /*normalize*/
 @import url(''); /*шрифты*/
-@import url('');
-@import url('');
-@import url('');
+@import url('../blocks/page/page.css');
+@import url('../blocks/weather-img/weather-img.css');
+@import url('../blocks/weather-img/__img/weather-img__img.css');
 @import url('');
 @import url('');
 @import url('');
