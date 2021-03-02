@@ -1,9 +1,9 @@
 .locations {
   width: 375px; /*поменять на макс 100%*/
-  height: 1000px; /*поменять на макс*/
+  height: 100vh; /*поменять на макс*/
   background-color: #fff;
   border-radius: 20px 20px 0 0;
-  position: fixed;
+  position: relative;
   top: 29px;
   padding-top: 28px;
   padding-right: 20px;

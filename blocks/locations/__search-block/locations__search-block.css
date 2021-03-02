@@ -1,0 +1,9 @@
+.locations__search-block {
+    width: 345px;
+    height: 135px;
+    background: linear-gradient(180deg, #FFFFFF 55.7%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    top: 29px;
+    left:50%;
+    transform:translate(-50%, 0);
+}

@@ -1,0 +1,12 @@
+.locations__list {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25px;
+    grid-row-gap: 20px;
+    background-color: aquamarine;
+    position: relative;
+    z-index: 2;
+}

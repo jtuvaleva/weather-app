@@ -1,12 +1,11 @@
 .locations__title {
-  position: relative;
-  margin: 0 auto;
   color: #999999;
-  font-family: Barlow;
+  font-family: Barlow; /*дописать шрифт*/
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
   padding-bottom: 27px;
+  margin: 0;
 }
