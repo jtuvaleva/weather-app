@@ -3,11 +3,12 @@
 @import url('../blocks/page/page.css');
 @import url('../blocks/weather-img/weather-img.css');
 @import url('../blocks/weather-img/__img/weather-img__img.css');
+
 @import url('../blocks/locations/locations.css');
 @import url('../blocks/locations/__title/locations__title.css');
-@import url('');
-@import url('');
-@import url('');
+@import url('../blocks/locations/__search/locations__search.css');
+@import url('../blocks/locations/__icon/locations__icon.css');
+@import url('../blocks/locations/__name/locations__name.css');
 @import url('');
 @import url('');
 @import url('');
