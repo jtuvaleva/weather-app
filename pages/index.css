@@ -11,9 +11,9 @@
 @import url('../blocks/locations/__name/locations__name.css');
 @import url('../blocks/locations/__search-block/locations__search-block.css');
 @import url('../blocks/locations/__list/locations__list.css');
-@import url('');
-@import url('');
-@import url('');
+@import url('../blocks/locations/__item/locations__item.css');
+@import url('../blocks/locations/__city/locations__city.css');
+@import url('../blocks/locations/__temp/locations__temp.css');
 @import url('');
 
 @import url('../blocks/main/main.css');
