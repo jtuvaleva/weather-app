@@ -1,0 +1,6 @@
+.weather-city__local {
+  display: grid;
+  grid-template-columns: 221px 154px;
+  grid-template-rows: 48px;
+  align-items: center;
+}

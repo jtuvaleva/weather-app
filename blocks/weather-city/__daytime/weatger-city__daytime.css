@@ -1,0 +1,15 @@
+.weatger-city__daytime {
+  font-family: 'Barlow', Arial, sans-serif; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #999999;
+  padding: 0 20px;
+  margin: 0;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

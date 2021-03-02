@@ -1,0 +1,21 @@
+.weather-city__city-block {
+  padding: 15px 20px 15px 20px;
+  margin: 0;
+  background: rgba(13, 159, 234, 0.08);
+  border-radius: 0px 0px 0px 20px;
+  /*text*/
+  font-family: 'Barlow', Arial, sans-serif; 
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #0DA0EA;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
