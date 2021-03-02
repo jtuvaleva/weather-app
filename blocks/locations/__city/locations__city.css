@@ -1,12 +1,5 @@
 .locations__city {
   max-width: 90%;
-  font-family: 'Barlow', Arial, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: -0.05em;
-  color: #444444;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

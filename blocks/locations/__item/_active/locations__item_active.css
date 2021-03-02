@@ -1,0 +1,6 @@
+.locations__item_active {
+  background: #ECF7FD;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+}
