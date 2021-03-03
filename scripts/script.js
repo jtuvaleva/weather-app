@@ -31,7 +31,7 @@ function addCity(name, temperature) {
 }
 
 function getCityWeather(name){
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${api_key}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${api_key}&units=metric`;
     const tmp = {};
     
     fetch(url)
