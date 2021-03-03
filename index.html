@@ -21,88 +21,13 @@
         </div>
       </div>
       <ul class="locations__list">
-        <li class="locations__item">
-          <span class="locations__city">Moscow</span>
-          <span class="locations__temp">1&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">New York</span>
-          <span class="locations__temp">-2&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Mumbai</span>
-          <span class="locations__temp">30&deg;</span>
-        </li>
-        <li class="locations__item locations__item_active">
-          <span class="locations__city">London</span>
-          <span class="locations__temp">8&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Paris</span>
-          <span class="locations__temp">13&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Kazan</span>
-          <span class="locations__temp">-2&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Ekaterinburg</span>
-          <span class="locations__temp">-7&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Roma</span>
-          <span class="locations__temp">8&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Berlin</span>
-          <span class="locations__temp">8&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Madrid</span>
-          <span class="locations__temp">13&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Barcelona</span>
-          <span class="locations__temp">13&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Edinburg</span>
-          <span class="locations__temp">2&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Oslo</span>
-          <span class="locations__temp">10&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Amsterdam</span>
-          <span class="locations__temp">11&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Tel-Aviv</span>
-          <span class="locations__temp">19&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Cairo</span>
-          <span class="locations__temp">16&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Deli</span>
-          <span class="locations__temp">19&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Tokyo</span>
-          <span class="locations__temp">19&deg;</span>
-        </li>
-        <li class="locations__item">
-          <span class="locations__city">Sydney</span>
-          <span class="locations__temp">15&deg;</span>
-        </li>
+        
       </ul>
     </div> 
     </section>
     <section class="weather-city">
       <div class="weather-city__local">
-        <p class="weatger-city__daytime">Sunday, 19 May 2019  |  4:30PM</p>
+        <p class="weather-city__daytime"></p>
         <div class="weather-city__city-block">
           <p class="weather-city__city">Mumbai, India </p>
           <img class="locations__icon locations__icon_blue" alt="Location" title="Location" src="./images/Facebook Places Blue.svg">
@@ -185,9 +110,16 @@
   <section>
   </section>
 
-  <template class="template">
-  </template>
+  <template id="locations-template">
+    <li class="locations__item">
+        <h3 class="locations__city"></h3>
+        <p class="locations__temp"></p>
+    </li>
+  </template> 
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/constant.js"></script>
+  <script src="./scripts/config.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
 </html>
