@@ -1,0 +1,12 @@
+.weather-city__desc {
+  font-family: 'Barlow', Arial, sans-serif; 
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 10px;
+  letter-spacing: 0.1em;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}

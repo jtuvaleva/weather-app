@@ -1,0 +1,17 @@
+.weather-city__next-temp_max {
+  padding-right: 10px;
+}
+
+.weather-city__next-temp_max::after {
+  content: '↑';
+  letter-spacing: -0.01em;
+  font-family:'Barlow', Arial, sans-serif; 
+  color: #666666;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 8px;
+  top: 0;
+  position: absolute;
+  padding-left: 2px;
+}

@@ -36,9 +36,12 @@
 @import url('../blocks/weather-city/__temp/weather-city__temp.css');
 @import url('../blocks/weather-city/__temp/_max/weather-city__temp_max.css');
 @import url('../blocks/weather-city/__temp/_min/weather-city__temp_min.css');
-@import url('');
-@import url('');
-@import url('');
+@import url('../blocks/weather-city/__icon/_detail/weather-city__icon_detail.css');
+@import url('../blocks/weather-city/__value/weather-city__value.css');
+@import url('../blocks/weather-city/__desc/weather-city__desc.css');
+@import url('../blocks/weather-city/__next-temp/weather-city__next-temp.css');
+@import url('../blocks/weather-city/__next-temp/_max/weather-city__next-temp_max.css');
+@import url('../blocks/weather-city/__next-temp/_min/weather-city__next-temp_min.css');
 @import url('');
 @import url('');
 @import url('');

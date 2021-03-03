@@ -10,3 +10,9 @@
   margin-top: 24px;
   justify-content: space-between;
 }
+
+
+.weather-city__info-item:nth-last-of-type(-n+3){
+box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+border-radius: 16px;
+}
