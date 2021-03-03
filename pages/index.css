@@ -21,6 +21,7 @@
 @import url('../blocks/main/main.css');
 
 @import url('../blocks/overlay/overlay.css');
+@import url('../blocks/overlay/_opened/overlay_opened.css');
 
 @import url('../blocks/weather-city/weather-city.css');
 @import url('../blocks/weather-city/__local/weather-city__local.css');

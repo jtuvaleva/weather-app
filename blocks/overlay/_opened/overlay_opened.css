@@ -1,0 +1,4 @@
+.overlay_opened {
+    display: flex;
+    z-index: 3;
+}
