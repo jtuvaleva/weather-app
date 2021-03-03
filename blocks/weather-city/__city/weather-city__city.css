@@ -1,3 +1,7 @@
 .weather-city__city {
   margin: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

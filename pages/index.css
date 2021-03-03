@@ -27,8 +27,8 @@
 @import url('../blocks/weather-city/__daytime/weatger-city__daytime.css');
 @import url('../blocks/weather-city/__city-block/weather-city__city-block.css');
 @import url('../blocks/weather-city/__city/weather-city__city.css');
-@import url('');
-@import url('');
+@import url('../blocks/weather-city/__info-list/weather-city__info-list.css');
+@import url('../blocks/weather-city/__info-item/weather-city__info-item.css');
 @import url('');
 @import url('');
 @import url('');

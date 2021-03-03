@@ -1,0 +1,6 @@
+.weather-city__info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

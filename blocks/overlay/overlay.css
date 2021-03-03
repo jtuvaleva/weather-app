@@ -6,7 +6,7 @@
   margin: 0 auto;
   width: 375px;
   background-color: rgba(0,0,0, .5);
-  /*visibility: hidden;*/
+  visibility: hidden;
   /*
   opacity: 0;
   transition-duration: .5s, 0s;
