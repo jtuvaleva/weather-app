@@ -7,6 +7,6 @@
   margin-top: -20px;
   box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
   display: grid;
-  overflow: hidden;
+  overflow: scroll;
  /* visibility: hidden;*/
 }

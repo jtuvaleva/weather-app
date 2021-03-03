@@ -1,0 +1,9 @@
+.weather-city__temp  {
+  font-family: 'Barlow', Arial, sans-serif; 
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #666666;
+  position: relative;
+}

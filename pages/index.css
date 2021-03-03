@@ -29,7 +29,13 @@
 @import url('../blocks/weather-city/__city/weather-city__city.css');
 @import url('../blocks/weather-city/__info-list/weather-city__info-list.css');
 @import url('../blocks/weather-city/__info-item/weather-city__info-item.css');
-@import url('');
+@import url('../blocks/weather-city/__icon/_main/weather-city__icon_main.css');
+@import url('../blocks/weather-city/__status/weather-city__status.css');
+@import url('../blocks/weather-city/__status/_main/weather-city__status_main.css');
+@import url('../blocks/weather-city/__temp-main/weather-city__temp-main.css');
+@import url('../blocks/weather-city/__temp/weather-city__temp.css');
+@import url('../blocks/weather-city/__temp/_max/weather-city__temp_max.css');
+@import url('../blocks/weather-city/__temp/_min/weather-city__temp_min.css');
 @import url('');
 @import url('');
 @import url('');
