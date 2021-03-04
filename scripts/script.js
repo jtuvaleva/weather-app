@@ -14,9 +14,27 @@ const weatherStatus = document.querySelector('.weather-city__status_main');
 const weatherStatusIcon = document.querySelector('.weather-city__icon_main');
 const sunrise = document.querySelector('.weather-city__value_field_sunrise');
 const sunset = document.querySelector('.weather-city__value_field_sunset');
+const dayTime = document.querySelector('.weather-city__value_field_daytime');
 const wind = document.querySelector('.weather-city__value_field_wind');
 
 const weather = [];
+
+function convertToLocalString(dt) {
+    return dt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+}
+
+function convertTime(unixTime, timezone) {
+    const actualDT = new Date();
+    const localOffset = actualDT.getTimezoneOffset()*60;
+    if (timezone+localOffset === 0) {
+        let dt = new Date(unixTime * 1000);
+        return dt;
+    } else {
+        let dt = new Date((unixTime + timezone + localOffset)* 1000);
+        return dt;
+    }
+};
+
 
 function getCurrentTime(textElement) {
     const currentTime =  new Date();
@@ -24,25 +42,16 @@ function getCurrentTime(textElement) {
     const day = dayList[currentTime.getDay()];
     const month = monthName[currentTime.getMonth()];
     const year = currentTime.getFullYear();
-    textElement.textContent = day+ ', ' + dayNumber +' '+ month + ' ' + year +  ' | ' +
-    currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    textElement.textContent = day+ ', ' + dayNumber +' '+ month + ' ' + year +  ' | ' + 
+    convertToLocalString(currentTime);
 };
 
-
-
-function convertTime(unixTime, timezone) {
-    const actualDT = new Date();
-    const localOffset = actualDT.getTimezoneOffset()*60;
-    if (timezone+localOffset === 0) {
-        let dt = new Date(unixTime * 1000);
-        const hhMm = dt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-        return hhMm;
-    } else {
-        let dt = new Date((unixTime + timezone + localOffset)* 1000);
-        const hhMm = dt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-        return hhMm;
-    }
-};
+function getDayTime(diffTime) {
+    const hm = diffTime/1000/3600;
+    const h = Math.floor(hm);
+    const m = Math.floor((hm - h)*60);
+    return h +'h'+ ' ' + m +'m';
+}
 
 function showWeatherInfo (obj) {
     closePopup(overlay);
@@ -55,10 +64,10 @@ function showWeatherInfo (obj) {
     weatherStatus.textContent = obj.status;
     wind.textContent = obj.wind + ' m/s';
     weatherStatusIcon.src = "https://openweathermap.org/img/wn/"+ obj.iconId +"@4x.png";
-    sunset.textContent = obj.sunset;
-    sunrise.textContent = obj.sunrise;
+    sunset.textContent = convertToLocalString(obj.sunset);
+    sunrise.textContent = convertToLocalString(obj.sunrise);
+    dayTime.textContent = getDayTime(obj.sunset - obj.sunrise);
 };
-
 
 
 function addCity(obj) {
@@ -74,7 +83,7 @@ function addCity(obj) {
     cardContainer.append(cardElement);
     cardCity.addEventListener('click', () => showWeatherInfo(obj));
     return cardContainer;
-}
+};
 
 
 function getCityWeather(name){
@@ -88,7 +97,6 @@ function getCityWeather(name){
         })
         .then(function(data){
             tmp.name = data.name;
-            tmp.country = data.sys.country;
             tmp.temperature = Math.floor(data.main.temp);
             tmp.temp_min = Math.floor(data.main.temp_min);
             tmp.temp_max = Math.floor(data.main.temp_max);
