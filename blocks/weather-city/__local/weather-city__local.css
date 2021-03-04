@@ -1,7 +1,13 @@
 .weather-city__local {
   display: grid;
-  grid-template-columns: 221px 154px;
+  grid-template-columns: 60% 40%;
   grid-template-rows: 48px;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
+
+ @media screen and (max-width: 375px) {
+  .weather-city__local {
+    margin-bottom: 1vh;
+  }
+} 

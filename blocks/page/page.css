@@ -3,8 +3,15 @@
   position: relative;
   margin: 0 auto;
   padding: 0;
-  max-height: 800px;
+  /*max-height: 800px;*/
   height: 100vh;
   /*временный цвет для удобства верстки*/
   background-color: gray;
 }
+
+@media screen and (max-width: 375px) {
+  .page {
+    max-width: 100%;
+  }
+}
+

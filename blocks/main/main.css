@@ -1,6 +1,6 @@
 .main {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .main::-webkit-scrollbar { width: 0; }

@@ -7,4 +7,10 @@
   letter-spacing: -0.05em;
   color: #000000;
   border: none;
+  width: 90%;
+  background-color: #F3F3F3;
+}
+
+.locations__name:focus {
+  outline: 1px solid gray;
 }

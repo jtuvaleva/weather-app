@@ -10,3 +10,10 @@
   padding: 0;
   max-width: 100%;
 }
+
+@media screen and (max-width: 375px) {
+  .weather-city__info-list {
+    grid-template-columns: repeat(3, 30%);
+    grid-column-gap: 5%;
+  }
+}
