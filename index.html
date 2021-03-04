@@ -11,12 +11,12 @@
     <section class="weather-img">
       <img class="weather-img__img" src="./images/day-img.jpg" alt="Weather" title="Weather">
     </section>
-    <section class="overlay">
+    <section class="overlay overlay_opened">
     <div class="locations"> 
       <div class="locations__search-block">
         <h2 class="locations__title">Location</h2>
         <div class="locations__search">
-          <span class="locations__name">Mumbai</span>
+          <input id="searchbar" type="text" placeholder="Search city.." class="locations__name"> 
           <img class="locations__icon" alt="Location" title="Location" src="./images/Facebook Places.svg">
         </div>
       </div>
@@ -47,27 +47,27 @@
         </li>
         <li class="weather-city__info-item">
           <img class="weather-city__icon weather-city__icon_detail" alt="Humidity" src="./images/humidity.svg">
-          <span class="weather-city__value">49%</span>
+          <span class="weather-city__value weather-city__value_field_humidity">49%</span>
           <span class="weather-city__desc">Humidity</span>
         </li>
         <li class="weather-city__info-item">
           <img class="weather-city__icon weather-city__icon_detail" alt="Pressure" src="./images/pressure.svg">
-          <span class="weather-city__value">1,007mBar</span>
+          <span class="weather-city__value weather-city__value_field_pressure">1,007mBar</span>
           <span class="weather-city__desc">Pressure</span>
         </li>
         <li class="weather-city__info-item">
           <img class="weather-city__icon weather-city__icon_detail" alt="Wind" src="./images/wind.svg">
-          <span class="weather-city__value">23 km/h</span>
+          <span class="weather-city__value weather-city__value_field_wind">23 km/h</span>
           <span class="weather-city__desc">Wind</span>
         </li>
         <li class="weather-city__info-item">
           <img class="weather-city__icon weather-city__icon_detail" alt="Sunrise" src="./images/sunrise.svg">
-          <span class="weather-city__value">6:03 AM</span>
+          <span class="weather-city__value weather-city__value_field_sunrise">6:03 AM</span>
           <span class="weather-city__desc">Sunrise</span>
         </li>
         <li class="weather-city__info-item">
           <img class="weather-city__icon weather-city__icon_detail" alt="Sunset" src="./images/sunset.svg">
-          <span class="weather-city__value">7:05 PM</span>
+          <span class="weather-city__value weather-city__value_field_sunset">7:05 PM</span>
           <span class="weather-city__desc">Sunset</span>
         </li>
         <li class="weather-city__info-item">
