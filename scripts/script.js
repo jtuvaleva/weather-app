@@ -191,8 +191,8 @@ function filterCity() {
 function changeBackground() {
     const img = document.querySelector('.weather-img__img');
     const currentHour =  new Date().getHours();
-    if (currentHour > 18 ){
-        img.src = '../images/night-img.png'
+    if (currentHour > 17 || currentHour < 6){
+        img.src = './images/night-img.png'
     }
 }
 
