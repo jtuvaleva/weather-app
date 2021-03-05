@@ -105,7 +105,6 @@ function addCity(obj) {
 
 
 getWeather = async (name) => {
-    
     const tmp = {};
     const daily = [];
     const actualDate = new Date().toISOString().slice(0,10);
@@ -150,6 +149,7 @@ getWeather = async (name) => {
     addCity(tmp);
 };
 
+
 function closePopupWithEsc(evt) {
     const closeElement = document.querySelector('.overlay_opened');
     if (evt.key === "Escape") {
@@ -161,18 +161,18 @@ function closePopupWithEsc(evt) {
 function openPopup(popupElement) {
     popupElement.classList.add('overlay_opened');
     document.addEventListener('keydown', closePopupWithEsc);
-} 
+};
 
 function closePopup(popupElement) {
     popupElement.classList.remove('overlay_opened');
     document.removeEventListener('keydown', closePopupWithEsc);
-}
+};
 
 function renderList (list) {
     for (index in list) {
         getWeather(list[index]);
     }
-}
+};
 
 function filterCity() {
     filterValue = input.value.toLowerCase();
@@ -188,7 +188,20 @@ function filterCity() {
 };
 
 
+function changeBackground() {
+    const img = document.querySelector('.weather-img__img');
+    const currentHour =  new Date().getHours();
+    if (currentHour > 18 ){
+        img.src = '../images/night-img.png'
+    }
+}
+
 getCurrentTime(timeCard);
+
+document.addEventListener("DOMContentLoaded", function(){
+    changeBackground();
+});
+
 
 
 cityBlock.addEventListener('click', function(){
@@ -202,6 +215,3 @@ weatherImg.addEventListener('click', function(){
 renderList(cityList.sort());
 
 input.addEventListener('keyup', filterCity);
-
-
-
