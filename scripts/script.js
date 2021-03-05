@@ -16,12 +16,15 @@ const sunrise = document.querySelector('.weather-city__value_field_sunrise');
 const sunset = document.querySelector('.weather-city__value_field_sunset');
 const dayTime = document.querySelector('.weather-city__value_field_daytime');
 const wind = document.querySelector('.weather-city__value_field_wind');
-
 const weather = [];
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+};
 
 function convertToLocalString(dt) {
     return dt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-}
+};
 
 function convertTime(unixTime, timezone) {
     const actualDT = new Date();
@@ -35,10 +38,9 @@ function convertTime(unixTime, timezone) {
     }
 };
 
-
 function getCurrentTime(textElement) {
     const currentTime =  new Date();
-    const dayNumber = currentTime.getDay();
+    const dayNumber = currentTime.getDate();
     const day = dayList[currentTime.getDay()];
     const month = monthName[currentTime.getMonth()];
     const year = currentTime.getFullYear();
@@ -51,9 +53,13 @@ function getDayTime(diffTime) {
     const h = Math.floor(hm);
     const m = Math.floor((hm - h)*60);
     return h +'h'+ ' ' + m +'m';
-}
+};
 
 function showWeatherInfo (obj) {
+    const nextMax = document.querySelectorAll('.weather-city__next-temp_max');
+    const nextMin = document.querySelectorAll('.weather-city__next-temp_min');
+    const nextIcon = document.querySelectorAll('.weather-city__icon_detail-forecast');
+    const nextDay = document.querySelectorAll('.weather-city__value_field_day');
     closePopup(overlay);
     weatherCity.textContent = obj.name + ', ' + obj.country;
     tempMain.textContent = obj.temperature;
@@ -67,16 +73,28 @@ function showWeatherInfo (obj) {
     sunset.textContent = convertToLocalString(obj.sunset);
     sunrise.textContent = convertToLocalString(obj.sunrise);
     dayTime.textContent = getDayTime(obj.sunset - obj.sunrise);
+    nextMax[0].textContent = Math.floor(obj.daily[0]['temp_max']);
+    nextMax[1].textContent = Math.floor(obj.daily[1]['temp_max']);
+    nextMax[2].textContent = Math.floor(obj.daily[2]['temp_max']);
+    nextMin[0].textContent = Math.floor(obj.daily[0]['temp_min']);
+    nextMin[1].textContent = Math.floor(obj.daily[1]['temp_min']);
+    nextMin[2].textContent = Math.floor(obj.daily[2]['temp_min']);
+    nextIcon[0].src = "https://openweathermap.org/img/wn/"+ obj.daily[0]['iconId'] +"@4x.png";
+    nextIcon[1].src = "https://openweathermap.org/img/wn/"+ obj.daily[1]['iconId'] +"@4x.png";
+    nextIcon[2].src = "https://openweathermap.org/img/wn/"+ obj.daily[2]['iconId'] +"@4x.png";
+    nextDay[0].textContent = obj.daily[0]['next_day'];
+    nextDay[1].textContent = obj.daily[1]['next_day'];
+    nextDay[2].textContent = obj.daily[2]['next_day'];
 };
 
 
 function addCity(obj) {
-    const name = obj.name;
-    const temperature = obj.temperature;
     const cardTemplate = document.querySelector('#locations-template').content;
     const cardElement = cardTemplate.querySelector('.locations__item').cloneNode(true);
     const cardCity = cardElement.querySelector('.locations__city');
     const cardTemperature = cardElement.querySelector('.locations__temp');
+    const name = obj.name;
+    const temperature = obj.temperature;
 
     cardCity.textContent = name;
     cardTemperature.textContent = temperature + String.fromCharCode(176);
@@ -86,33 +104,51 @@ function addCity(obj) {
 };
 
 
-function getCityWeather(name){
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${api_key}&units=metric`;
+getWeather = async (name) => {
+    
     const tmp = {};
+    const daily = [];
+    const actualDate = new Date().toISOString().slice(0,10);
+    const fetchText = url => fetch(url).then(r => r.json());
+ 
+    const [weather, forecast] = await Promise.all([
+        fetchText(`https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`),
+        fetchText(`https://api.openweathermap.org/data/2.5/forecast?q=${name}&cnt=24&appid=${apiKey}&units=metric`)
+    ]);
+    tmp.name = weather.name;
+    tmp.temperature = Math.floor(weather.main.temp);
+    tmp.temp_min = Math.floor(weather.main.temp_min);
+    tmp.temp_max = Math.floor(weather.main.temp_max);
+    tmp.pressure = weather.main.pressure;
+    tmp.wind = weather.wind.speed;
+    tmp.humidity = weather.main.humidity;
+    tmp.status = weather.weather[0].main;
+    tmp.iconId = weather.weather[0].icon;
+    tmp.country = weather.sys.country;
+    tmp.sunrise = convertTime(weather.sys.sunrise, weather.timezone);
+    tmp.sunset = convertTime(weather.sys.sunset, weather.timezone);
 
-    fetch(url)
-        .then(function(response){
-            let data =  response.json();
-            return data;
-        })
-        .then(function(data){
-            tmp.name = data.name;
-            tmp.temperature = Math.floor(data.main.temp);
-            tmp.temp_min = Math.floor(data.main.temp_min);
-            tmp.temp_max = Math.floor(data.main.temp_max);
-            tmp.pressure = data.main.pressure;
-            tmp.wind = data.wind.speed;
-            tmp.humidity = data.main.humidity;
-            tmp.status = data.weather[0].main;
-            tmp.iconId = data.weather[0].icon;
-            tmp.country = data.sys.country;
-            tmp.sunrise = convertTime(data.sys.sunrise, data.timezone);
-            tmp.sunset = convertTime(data.sys.sunset, data.timezone);
-            addCity(tmp);
+    
+    const dateList = forecast.list.reduce((a,o) => (!o.dt_txt.includes(actualDate)&& a.push(o.dt_txt.split(' ')[0]), a.filter(onlyUnique)), []);
+    for (day in dateList) {
+        const filteredDay = forecast.list.filter(function (el) {
+            return el.dt_txt.includes(dateList[day]);
         });
-    return tmp;
-}
-
+        const ymd = new Date(dateList[day]);
+        const dayNumber = ymd.getDate();
+        const dayName = dayList[ymd.getDay()];
+        const tempMin = Math.min.apply(Math, filteredDay.map(a => a.main.temp_min));
+        const tempMax  = Math.max.apply(Math, filteredDay.map(a => a.main.temp_max));
+        const weatherIcon = filteredDay.map(a => a.weather[0].icon)[3];
+        const obj = {'temp_min': tempMin, 
+                     'temp_max': tempMax, 
+                     'iconId': weatherIcon, 
+                     'next_day': dayName + ', '+ dayNumber};
+        daily.push(obj);
+    }
+    tmp.daily = daily;
+    addCity(tmp);
+};
 
 function closePopupWithEsc(evt) {
     const closeElement = document.querySelector('.overlay_opened');
@@ -134,7 +170,7 @@ function closePopup(popupElement) {
 
 function renderList (list) {
     for (index in list) {
-        getCityWeather(list[index]);
+        getWeather(list[index]);
     }
 }
 
@@ -163,7 +199,7 @@ weatherImg.addEventListener('click', function(){
     closePopup(overlay);
 });
 
-renderList(cityList);
+renderList(cityList.sort());
 
 input.addEventListener('keyup', filterCity);
 

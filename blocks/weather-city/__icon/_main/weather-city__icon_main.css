@@ -1,4 +1,6 @@
 .weather-city__icon_main {
-  max-width: 40px;
-  max-height: 30px;
+  max-width: 50px;
+  max-height: 40px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
