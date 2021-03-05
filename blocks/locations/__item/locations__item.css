@@ -11,4 +11,13 @@
   letter-spacing: -0.05em;
   color: #444444;
   padding: 0 10px;
+  cursor: pointer;
+}
+
+.locations__item:hover {
+  background: #ECF7FD;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  transition: .3s;
 }

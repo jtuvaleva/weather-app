@@ -1,15 +1,13 @@
 .page {
-  max-width: 375px;
+  max-width: 440px;
   position: relative;
   margin: 0 auto;
   padding: 0;
-  /*max-height: 800px;*/
   height: 100vh;
-  /*временный цвет для удобства верстки*/
-  background-color: gray;
+  background-color:#a7d4f3;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 440px) {
   .page {
     max-width: 100%;
   }

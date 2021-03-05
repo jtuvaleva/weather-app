@@ -1,12 +1,11 @@
 .weather-city__info-list {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-column-gap: 15px;
+  grid-template-columns: repeat(3, 110px);
+  grid-column-gap: 20px;
   grid-template-rows: 100px repeat(3,95px);
   grid-row-gap: 5px;
   list-style-type: none;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 auto;
   padding: 0;
   max-width: 100%;
 }
@@ -15,5 +14,7 @@
   .weather-city__info-list {
     grid-template-columns: repeat(3, 30%);
     grid-column-gap: 5%;
+    margin-left: 20px;
+     margin-right: 20px;
   }
 }

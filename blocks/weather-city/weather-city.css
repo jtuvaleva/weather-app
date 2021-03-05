@@ -1,5 +1,5 @@
 .weather-city {
-  max-width: 375px; /*поменять на макс 100%*/
+  max-width: 440px; 
   background-color: #fff;
   border-radius: 20px 20px 0 0;
   position: relative;
@@ -7,7 +7,9 @@
   box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
   overflow: scroll;
   overflow-x: hidden;
- /* visibility: hidden;*/
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
 }
 
 .weather-city::-webkit-scrollbar { width: 0; }
