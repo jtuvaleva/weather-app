@@ -112,7 +112,7 @@ getWeather = async (name) => {
  
     const [weather, forecast] = await Promise.all([
         fetchText(`https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`),
-        fetchText(`https://api.openweathermap.org/data/2.5/forecast?q=${name}&cnt=24&appid=${apiKey}&units=metric`)
+        fetchText(`https://api.openweathermap.org/data/2.5/forecast?q=${name}&cnt=26&appid=${apiKey}&units=metric`)
     ]);
     tmp.name = weather.name;
     tmp.temperature = Math.floor(weather.main.temp);
