@@ -11,7 +11,7 @@
  z-index: 1;
  top: 115px;
  overflow: scroll;
- height: 70vh;
+ height: calc(100% - 180px);
  margin-bottom: 30px;
 }
 

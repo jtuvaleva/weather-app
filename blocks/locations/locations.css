@@ -9,6 +9,7 @@
   padding-left: 40px;
   box-sizing: border-box;
   overflow: hidden;
+  min-width: 320px;
 }
 
 @media screen and (max-width: 440px) {

@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
+  min-width: 320px;
 }
 
 .weather-city::-webkit-scrollbar { width: 0; }

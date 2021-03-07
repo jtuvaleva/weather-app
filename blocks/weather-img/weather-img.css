@@ -4,4 +4,5 @@
   max-height: 300px;
   overflow: hidden;
   object-fit: contain;
+  min-width: 320px;
 }
